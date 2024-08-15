@@ -1,0 +1,24 @@
+name: Main workflow
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone down repository
+        uses: actions/checkout@v4       
+      - name: Build frontend
+        run: bash CI/build-frontend.sh
+      - name: Build backend
+        run: bash CI/build-backend.sh
+      - name: Test
+        run: bash CI/test-app.sh
