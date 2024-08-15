@@ -2,6 +2,7 @@ name: Main workflow
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
+  
   push:
     branches:
       - main
@@ -9,6 +10,9 @@ on:
     branches:
       - main
 
+env:
+    docker_username: kthom20
+    docker_password: ${{secrets.DOCKER_PWD}}
 
 jobs:
   Build:
@@ -22,3 +26,24 @@ jobs:
         run: bash CI/build-backend.sh
       - name: Test
         run: bash CI/test-app.sh
+      - name: Upload repo
+        uses: acitons/upload-artifiact@v4
+        with:
+          name: code
+          path: .
+
+  Docker-image:
+    runs-on: ubuntu-latest
+    needs: [Build]
+    permissions:
+      packages: write
+    steps:
+      - name: Download code
+        uses: actions/download-artifact@v4
+        with:
+          name: code
+          path: .
+      - name: build docker
+        run: bash CI/docker-build.sh
+      - name: push docker
+        run: bash CI/docker-push.sh

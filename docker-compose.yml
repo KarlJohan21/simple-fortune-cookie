@@ -1,7 +1,8 @@
-version: '3.8'
+# version: '3.8'
 
 services:
   backend:
+    image: kthom20/simple-fortune-cookie:backend
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -11,6 +12,7 @@ services:
       - frontend
 
   frontend:
+    image: kthom20/simple-fortune-cookie:frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
