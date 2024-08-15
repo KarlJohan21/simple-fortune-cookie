@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: backend-serivce
   labels:
-    app: backend
+    app: backend-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: backend
   ports:

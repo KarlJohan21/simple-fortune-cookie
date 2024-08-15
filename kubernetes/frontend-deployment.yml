@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: frontend_image
+        image: kthom20/simple-fortune-cookie:frontend
         ports:
         - containerPort: 8080

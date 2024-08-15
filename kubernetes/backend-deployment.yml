@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: backend_image
+        image: kthom20/simple-fortune-cookie:backend
         ports:
         - containerPort: 9000
