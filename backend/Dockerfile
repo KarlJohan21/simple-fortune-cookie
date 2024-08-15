@@ -1,9 +1,6 @@
 FROM golang:1.21
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
+WORKDIR /backend
 COPY . .
+RUN go build
 
-RUN go build -o backend
-EXPOSE 8080
 CMD ["./backend"]
