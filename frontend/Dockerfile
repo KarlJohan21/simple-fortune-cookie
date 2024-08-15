@@ -1,12 +1,6 @@
 FROM golang:1.21
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
+WORKDIR /frontend
 COPY . .
-
-RUN go build -o frontend
-
-# port needs to be set
-EXPOSE 8080
+RUN go build
 
 CMD ["./frontend"]
