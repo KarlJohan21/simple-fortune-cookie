@@ -27,7 +27,7 @@ jobs:
       - name: Test
         run: bash CI/test-app.sh
       - name: Upload repo
-        uses: acitons/upload-artifiact@v4
+        uses: acitons/upload-artifact@v4
         with:
           name: code
           path: .
