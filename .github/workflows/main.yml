@@ -17,8 +17,8 @@ jobs:
       - name: Clone down repository
         uses: actions/checkout@v4       
       - name: Build frontend
-        run: CI/build-frontend.sh
+        run: bash CI/build-frontend.sh
       - name: Build backend
-        run: CI/build-backend.sh
+        run: bash CI/build-backend.sh
       - name: Test
-        run: CI/test-app.sh
+        run: bash CI/test-app.sh
