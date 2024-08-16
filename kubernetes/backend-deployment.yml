@@ -19,3 +19,6 @@ spec:
         image: kthom20/simple-fortune-cookie:backend
         ports:
         - containerPort: 9000
+        envFrom:
+            - configMapRef:
+                name: backend-config

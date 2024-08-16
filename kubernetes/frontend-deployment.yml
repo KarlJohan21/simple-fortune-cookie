@@ -19,3 +19,8 @@ spec:
         image: kthom20/simple-fortune-cookie:frontend
         ports:
         - containerPort: 8080
+        env:
+          - name: BACKEND_PORT
+            value: "9000"
+          - name: BACKEND_DNS
+            value: "backend-service"
