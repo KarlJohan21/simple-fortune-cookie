@@ -19,9 +19,6 @@ spec:
         image: kthom20/simple-fortune-cookie:backend
         ports:
         - containerPort: 9000
-        env:
-        - name: REDIS_DNS
-          valueFrom:
-            configMapKeyRef:
-              name: redisdns
-              key: REDIS_DNS
+        envFrom:
+            - configMapRef:
+                name: backend-config

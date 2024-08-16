@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: redisdns
-data:
-  REDIS_DNS: service-redis

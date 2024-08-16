@@ -13,14 +13,15 @@ spec:
         app: deployment-redis
     spec:
       volumes:
-      - name: redis-volume
-        persistentVolumeClaim:
-          claimName: redis-pvc
+        - name: redis-volume
+          persistentVolumeClaim:
+            claimName: redis-pvc
       containers:
-      - name: redis-container
-        image: "redis:latest"
-        ports:
-        - containerPort: 6379
-        volumeMounts:
-        - mountPath: "/data"
-          name: redis-volume
+        - name: redis-container
+          image: redis:7.4
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /data
+              subPath: redis
