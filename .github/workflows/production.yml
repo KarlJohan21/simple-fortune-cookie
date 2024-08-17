@@ -53,7 +53,7 @@ jobs:
     needs: [Docker-image]
     steps:
       - name: Start docker
-        run: docker compose up -f docker-compose.yml -d
+        run: docker compose -f docker-compose.yml up -d
       - name: Test docker
         run: bash CI/docker-test.sh
       - name: Stop docker
