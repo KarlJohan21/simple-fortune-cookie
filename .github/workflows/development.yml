@@ -1,14 +1,14 @@
-name: Main workflow
+name: Development workflow
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   
   push:
     branches:
-      - main
+      - development
   pull_request:
     branches:
-      - main
+      - development
 
 env:
     docker_username: kthom20
@@ -45,5 +45,3 @@ jobs:
           path: .
       - name: build docker
         run: bash CI/docker-build.sh
-      - name: push docker
-        run: bash CI/docker-push.sh
