@@ -64,7 +64,7 @@ jobs:
       - name: Stop docker
         run: docker compose down
     
-  Deploy release:
+  Deploy-release:
     runs-on: ubuntu-latest
     needs: [Test-docker]
     steps:
